@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="pic">
+    <file>logotruong.png</file>
+  </qresource>
+</RCC>
