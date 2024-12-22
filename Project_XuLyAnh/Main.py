@@ -6,15 +6,23 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import QTimer
 import cv2
 from SerialPort import SerialPort 
+import firebase_admin
+from firebase_admin import db,credentials   
+
+selectedPort=""
+selectedMode=""
 
 class Ui_MainWindow(QtWidgets.QMainWindow):
-    def __init__(self, serialport):
+    def __init__(self, serialport, modeList):
         super().__init__()
-        loadUi('MainWindow.ui', self)  
+        loadUi('MainWindow.ui', self)
 
-        # Initialize SerialPort
+        # Initialize SerialPort and Mode List
         self.serialport = serialport
-        print(self.serialport.list_serial_ports())
+        self.modeList = modeList
+        if(len(self.serialport.list_serial_ports())!=0):
+            selectedPort=self.serialport.list_serial_ports()[0]
+        selectedMode=modeList[0]
 
         # Initialize camera (but don't open yet)
         self.capture = None
@@ -27,16 +35,56 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.videoLabel = self.findChild(QtWidgets.QLabel, "videoLabel")
         self.openCamera = self.findChild(QtWidgets.QPushButton, "openCamera")
         self.closeCamera = self.findChild(QtWidgets.QPushButton, "closeCamera")
+        self.serialPort = self.findChild(QtWidgets.QComboBox, "serialPort")
+        self.modeSelect = self.findChild(QtWidgets.QComboBox, "modeSelect")
+        self.startSystem=self.findChild(QtWidgets.QPushButton,"startSystem")
+        self.stopSystem=self.findChild(QtWidgets.QPushButton,"stopSystem")
+
+        # Update serial ports in the QComboBox
+        self.update_serial_ports()
+
+        # Update modes in the modeSelect ComboBox
+        self.update_mode_select()
 
         # Connect buttons to functions
+        self.startSystem.clicked.connect(lambda: self.start_System(selectedPort))
+        self.stopSystem.clicked.connect(self.stop_System)
         self.openCamera.clicked.connect(self.start_camera)
         self.closeCamera.clicked.connect(self.stop_camera)
+
+        self.serialPort.currentIndexChanged.connect(self.handle_serial_port_selection)
+        self.modeSelect.currentIndexChanged.connect(self.handle_mode_selection)
+
+    def start_System(self,selectedPort):
+        self.serialport.setPort(selectedPort)
+        self.serialport.connect()
+        self.serialport.send_data("ON")
+    
+    def stop_System(self):
+        self.serialport.disconnect()
+    
+    def update_serial_ports(self):
+        ports = self.serialport.list_serial_ports()
+        self.serialPort.clear()  
+        self.serialPort.addItems(ports) 
+
+    def handle_serial_port_selection(self):
+        selectedPort = self.serialPort.currentText()  
+        print(f"Selected serial port: {selectedPort}")
+
+    def update_mode_select(self):
+        self.modeSelect.clear()  
+        self.modeSelect.addItems(self.modeList)  
+
+    def handle_mode_selection(self):
+        selectedMode = self.modeSelect.currentText()  
+        print(f"Selected mode: {selectedMode}")
 
     def start_camera(self):
         """Open the camera when the button is clicked."""
         if self.capture is None or not self.capture.isOpened():
             # Open the camera
-            self.capture = cv2.VideoCapture("http:192.168.1.238:8080/video")
+            self.capture = cv2.VideoCapture("http://192.168.1.34:8080/video")
             if self.capture.isOpened():
                 print("Camera opened successfully!")
                 self.timer.start(30)  # Update frames every 30ms
@@ -82,7 +130,8 @@ import logoTruong_rc
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    serialport = SerialPort("COM3", 9600)
-    MainWindow = Ui_MainWindow(serialport)
+    modeList=["Điện trở","Tụ điện","Cuộn cảm"]
+    serialPort = SerialPort("COM5", 115200)
+    MainWindow = Ui_MainWindow(serialPort,modeList)
     MainWindow.show()
     sys.exit(app.exec_())

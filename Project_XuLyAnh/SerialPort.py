@@ -8,6 +8,9 @@ class SerialPort:
         self.baud_rate = baud_rate
         self.serial_connection = None
 
+    def setPort(self,port):
+        self.port=port
+
     def list_serial_ports(self):
         """Liệt kê tất cả các cổng serial hiện có."""
         ports = serial.tools.list_ports.comports()
