@@ -6,8 +6,8 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import QTimer
 import cv2
 from SerialPort import SerialPort 
-import firebase_admin
-from firebase_admin import db,credentials   
+from ultralytics import YOLO
+vinomodel = YOLO('yolov8n_openvino_model')
 
 selectedPort=""
 selectedMode=""
@@ -84,7 +84,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         """Open the camera when the button is clicked."""
         if self.capture is None or not self.capture.isOpened():
             # Open the camera
-            self.capture = cv2.VideoCapture("http://192.168.1.34:8080/video")
+            self.capture = cv2.VideoCapture("http://192.168.137.157:8080/video")
             if self.capture.isOpened():
                 print("Camera opened successfully!")
                 self.timer.start(30)  # Update frames every 30ms
@@ -109,7 +109,9 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             ret, frame = self.capture.read()
             if ret:
                 # Convert the frame from BGR to RGB
-                rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                results = vinomodel(frame)
+                annotated_frame = results[0].plot()  # Annotate frame with detections
+                rgb_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB)
                 
                 # Convert the frame to QImage
                 height, width, channel = rgb_frame.shape
@@ -130,7 +132,7 @@ import logoTruong_rc
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    modeList=["Điện trở","Tụ điện","Cuộn cảm"]
+    modeList=["ĐIỆN TRỞ","TỤ ĐIỆN","CUỘN CẢM"]
     serialPort = SerialPort("COM5", 115200)
     MainWindow = Ui_MainWindow(serialPort,modeList)
     MainWindow.show()

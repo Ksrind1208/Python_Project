@@ -60,6 +60,51 @@
       <pointsize>16</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox {
+    background-color: #D11D2F; /* Nền đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 2px solid #CD5C5C; /* Viền đỏ đậm */
+    padding: 5px;              /* Khoảng cách nội dung */
+    padding-right: 30px;       /* Tạo không gian cho mũi tên */
+}
+
+QComboBox:hover {
+    background-color: #FF6347; /* Màu đỏ sáng hơn khi rê chuột */
+}
+
+QComboBox:focus {
+    border: 2px solid #8B0000; /* Viền đậm hơn khi được chọn */
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right; /* Vị trí nút mũi tên */
+    border: none;                   /* Bỏ viền nút mũi tên */
+    background-color: #B22222;      /* Màu nền mũi tên */
+    border-top-right-radius: 20px;  /* Bo tròn góc trên phải */
+    border-bottom-right-radius: 20px; /* Bo tròn góc dưới phải */
+    width: 30px;                    /* Độ rộng của nút mũi tên */
+}
+
+QComboBox::down-arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent; /* Tạo cạnh trái của tam giác */
+    border-right: 6px solid transparent; /* Tạo cạnh phải của tam giác */
+    border-top: 6px solid white;        /* Tạo cạnh trên màu trắng */
+    margin: 5px;                        /* Căn chỉnh mũi tên trong nút */
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFF5F5; /* Nền danh sách thả xuống */
+    border: 1px solid #CD5C5C; /* Viền đỏ nhạt */
+    selection-background-color: #B22222; /* Nền khi chọn */
+    selection-color: white;             /* Chữ khi chọn */
+}
+</string>
+    </property>
    </widget>
    <widget class="QComboBox" name="modeSelect">
     <property name="geometry">
@@ -72,8 +117,53 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
+      <pointsize>12</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox {
+    background-color: #D11D2F; /* Nền đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 2px solid #CD5C5C; /* Viền đỏ đậm */
+    padding: 5px;              /* Khoảng cách nội dung */
+    padding-right: 30px;       /* Tạo không gian cho mũi tên */
+}
+
+QComboBox:hover {
+    background-color: #FF6347; /* Màu đỏ sáng hơn khi rê chuột */
+}
+
+QComboBox:focus {
+    border: 2px solid #8B0000; /* Viền đậm hơn khi được chọn */
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right; /* Vị trí nút mũi tên */
+    border: none;                   /* Bỏ viền nút mũi tên */
+    background-color: #B22222;      /* Màu nền mũi tên */
+    border-top-right-radius: 20px;  /* Bo tròn góc trên phải */
+    border-bottom-right-radius: 20px; /* Bo tròn góc dưới phải */
+    width: 30px;                    /* Độ rộng của nút mũi tên */
+}
+
+QComboBox::down-arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent; /* Tạo cạnh trái của tam giác */
+    border-right: 6px solid transparent; /* Tạo cạnh phải của tam giác */
+    border-top: 6px solid white;        /* Tạo cạnh trên màu trắng */
+    margin: 5px;                        /* Căn chỉnh mũi tên trong nút */
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFF5F5; /* Nền danh sách thả xuống */
+    border: 1px solid #CD5C5C; /* Viền đỏ nhạt */
+    selection-background-color: #B22222; /* Nền khi chọn */
+    selection-color: white;             /* Chữ khi chọn */
+}
+</string>
     </property>
    </widget>
    <widget class="QPushButton" name="startSystem">
@@ -89,6 +179,20 @@
      <font>
       <pointsize>20</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
     </property>
     <property name="text">
      <string>START</string>
@@ -108,6 +212,20 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
+    </property>
     <property name="text">
      <string>STOP</string>
     </property>
@@ -115,8 +233,8 @@
    <widget class="QPushButton" name="startBtn_2">
     <property name="geometry">
      <rect>
-      <x>1990</x>
-      <y>1090</y>
+      <x>1980</x>
+      <y>1100</y>
       <width>201</width>
       <height>71</height>
      </rect>
@@ -125,6 +243,20 @@
      <font>
       <pointsize>20</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
     </property>
     <property name="text">
      <string>HISTORY</string>
@@ -144,6 +276,20 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
+    </property>
     <property name="text">
      <string>OPEN</string>
     </property>
@@ -162,6 +308,20 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
+    </property>
     <property name="text">
      <string>CLOSE</string>
     </property>
@@ -174,6 +334,27 @@
       <width>1091</width>
       <height>671</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget {
+    border: 2px solid #D11D2F; /* Viền màu đỏ */
+    gridline-color: #D11D2F;  /* Màu đường lưới bên trong */
+    background-color: #FFFFFF; /* Màu nền bảng */
+    selection-background-color: #F5B7B1; /* Màu nền khi chọn ô */
+    selection-color: black; /* Màu chữ khi chọn ô */
+}
+
+QHeaderView::section {
+    background-color: #D11D2F; /* Màu nền tiêu đề cột/hàng */
+    color: white;             /* Màu chữ của tiêu đề */
+    border: 1px solid #FFFFFF; /* Đường viền giữa các tiêu đề */
+}
+
+QTableCornerButton::section {
+    background-color: #D11D2F; /* Màu nền góc trên bên trái */
+    border: 2px solid #D11D2F; /* Đường viền của góc */
+}
+</string>
     </property>
     <property name="lineWidth">
      <number>10</number>
@@ -284,6 +465,20 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
+    </property>
     <property name="text">
      <string>AUTO</string>
     </property>
@@ -302,8 +497,117 @@
       <pointsize>20</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
+    </property>
     <property name="text">
      <string>MANUAL</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stopSystem_4">
+    <property name="geometry">
+     <rect>
+      <x>1280</x>
+      <y>1050</y>
+      <width>181</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>SERVO1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stopSystem_5">
+    <property name="geometry">
+     <rect>
+      <x>1280</x>
+      <y>1150</y>
+      <width>181</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #D11D2F; /* Màu đỏ sáng khi không nhấn */
+    color: white;              /* Màu chữ */
+    border-radius: 20px;       /* Bo tròn góc */
+    border: 4px solid black;   /* Viền đen */
+}
+
+QPushButton:pressed {
+    background-color: #B22222; /* Màu đỏ đậm khi nhấn */
+    border: 4px solid black;   /* Viền đen khi nhấn */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>SERVO2</string>
+    </property>
+   </widget>
+   <widget class="QDial" name="dial">
+    <property name="geometry">
+     <rect>
+      <x>1590</x>
+      <y>1060</y>
+      <width>171</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>1750</x>
+      <y>1110</y>
+      <width>101</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>128</string>
     </property>
    </widget>
   </widget>
