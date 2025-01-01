@@ -8,7 +8,7 @@ import cv2
 from SerialPort import SerialPort 
 from ultralytics import YOLO
 # vinomodel = YOLO('yolov8n_openvino_model')
-vinomodel=YOLO('best.pt')
+vinomodel=YOLO('yolov8n_openvino_model')
 
 selectedPort=""
 selectedMode=""
