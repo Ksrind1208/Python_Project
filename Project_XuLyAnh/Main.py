@@ -7,7 +7,8 @@ from PyQt5.QtCore import QTimer
 import cv2
 from SerialPort import SerialPort 
 from ultralytics import YOLO
-vinomodel = YOLO('yolov8n_openvino_model')
+# vinomodel = YOLO('yolov8n_openvino_model')
+vinomodel=YOLO('best.pt')
 
 selectedPort=""
 selectedMode=""
@@ -84,10 +85,10 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         """Open the camera when the button is clicked."""
         if self.capture is None or not self.capture.isOpened():
             # Open the camera
-            self.capture = cv2.VideoCapture("http://192.168.137.157:8080/video")
+            self.capture = cv2.VideoCapture(0)
             if self.capture.isOpened():
                 print("Camera opened successfully!")
-                self.timer.start(30)  # Update frames every 30ms
+                self.timer.start(0)  # Update frames every 30ms
             else:
                 print("Failed to open the camera.")
         else:
@@ -132,7 +133,7 @@ import logoTruong_rc
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    modeList=["ĐIỆN TRỞ","TỤ ĐIỆN","CUỘN CẢM"]
+    modeList=["ĐIỆN TRỞ","TỤ ĐIỆN"]
     serialPort = SerialPort("COM5", 115200)
     MainWindow = Ui_MainWindow(serialPort,modeList)
     MainWindow.show()

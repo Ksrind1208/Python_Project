@@ -233,7 +233,7 @@ QPushButton:pressed {
    <widget class="QPushButton" name="startBtn_2">
     <property name="geometry">
      <rect>
-      <x>1980</x>
+      <x>1880</x>
       <y>1100</y>
       <width>201</width>
       <height>71</height>
@@ -329,9 +329,9 @@ QPushButton:pressed {
    <widget class="QTableWidget" name="tableComponents">
     <property name="geometry">
      <rect>
-      <x>1100</x>
-      <y>340</y>
-      <width>1091</width>
+      <x>1250</x>
+      <y>330</y>
+      <width>811</width>
       <height>671</height>
      </rect>
     </property>
@@ -364,6 +364,9 @@ QTableCornerButton::section {
       <width>100</width>
       <height>100</height>
      </size>
+    </property>
+    <property name="columnCount">
+     <number>2</number>
     </property>
     <attribute name="horizontalHeaderMinimumSectionSize">
      <number>100</number>
@@ -410,16 +413,6 @@ QTableCornerButton::section {
     <column>
      <property name="text">
       <string>Tụ điện</string>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Cuộn cảm</string>
      </property>
      <property name="font">
       <font>
@@ -518,7 +511,7 @@ QPushButton:pressed {
    <widget class="QPushButton" name="stopSystem_4">
     <property name="geometry">
      <rect>
-      <x>1280</x>
+      <x>1180</x>
       <y>1050</y>
       <width>181</width>
       <height>61</height>
@@ -550,7 +543,7 @@ QPushButton:pressed {
    <widget class="QPushButton" name="stopSystem_5">
     <property name="geometry">
      <rect>
-      <x>1280</x>
+      <x>1180</x>
       <y>1150</y>
       <width>181</width>
       <height>61</height>
@@ -582,7 +575,7 @@ QPushButton:pressed {
    <widget class="QDial" name="dial">
     <property name="geometry">
      <rect>
-      <x>1590</x>
+      <x>1490</x>
       <y>1060</y>
       <width>171</width>
       <height>151</height>
@@ -595,7 +588,7 @@ QPushButton:pressed {
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>1750</x>
+      <x>1650</x>
       <y>1110</y>
       <width>101</width>
       <height>51</height>
